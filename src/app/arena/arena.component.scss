@@ -1,10 +1,30 @@
-p {
+.frame{
     display: block;
     width: 900px;
     height: 500px;
     background-color: black;
-    color: white;
     position: relative;
-    margin: 40px auto;
+    margin: 40px auto 30px auto;
     border-radius: 20px;
+    position: relative;
+
+    .background{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 0;
+        height: 0;
+        border-top: 460px solid #61c6f0;
+        border-right: 850px solid #2dc1ee;
+        border-radius: 10px;
+    }
+
+    h1{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
 }

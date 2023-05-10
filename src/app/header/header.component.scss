@@ -1,6 +1,12 @@
-p{
+div{
     background-color: #431e15;
-    color: wheat;
-    text-align: center;
-    height: 80px;
+    height: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    h2{
+        color: wheat;
+    }
 }
+

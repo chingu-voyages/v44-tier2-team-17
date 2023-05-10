@@ -1,0 +1,42 @@
+div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    .pin {
+        background-color: #431e15;
+        height: 20px;
+        width: 130px;
+
+        i {
+            color: white;
+            position: absolute;
+            top: 130px;
+        }
+    }
+
+    .score {
+        background-color: white;
+        height: auto;
+        width: 180px;
+        display: flex;
+        align-items: start;
+
+        ul {
+            padding: 10px;
+            list-style: none;
+            width: 100%;
+            margin: 0;
+
+            li {
+                padding: 5px;
+                margin: 5px 0;
+                border-radius: 5px;
+                // background-color: rgb(188, 186, 186);
+                background-color: #ddcbcb;
+            }
+
+        }
+    }
+}
