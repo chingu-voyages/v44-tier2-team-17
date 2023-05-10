@@ -7,6 +7,7 @@ import { ArenaComponent } from './arena/arena.component';
 import { LeaderboardComponent } from './leaderboard/leaderboard.component';
 import { ConfigPanelComponent } from './config-panel/config-panel.component';
 import { FooterComponent } from './footer/footer.component';
+import { HeaderComponent } from './header/header.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { FooterComponent } from './footer/footer.component';
     ArenaComponent,
     LeaderboardComponent,
     ConfigPanelComponent,
-    FooterComponent
+    FooterComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
