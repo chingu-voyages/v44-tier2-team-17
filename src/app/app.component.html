@@ -1,5 +1,5 @@
 <main>
-  <div class="n">
+  <div class="containerr">
     <div class="col-2">
       <app-config-panel></app-config-panel>
     </div>
@@ -7,7 +7,7 @@
     <div class="col-8">
       <app-header></app-header>
       <app-arena></app-arena>
-        <button class="action-btn">Battle!</button>
+        <button (click)="battleBtn()" class="action-btn">{{play ? 'Battle!' : 'Stop!'}}</button>
     </div>
     
     <div class="col-2">

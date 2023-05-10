@@ -83,6 +83,5 @@
 </div>
 
 <div class="music-volume">
-    <i class="fa-solid fa-volume-high"></i>
-    <!-- <i class="fa-solid fa-volume-xmark"></i> -->
+    <i (click)="volumeOnOff()" class="fa-solid {{vol ? 'fa-volume-high' : 'fa-volume-xmark'}}"></i>
 </div>

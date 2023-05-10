@@ -7,5 +7,10 @@ import { Component } from '@angular/core';
 })
 export class ConfigPanelComponent {
 
+  vol: boolean = true;
+
+  volumeOnOff(): void {
+    this.vol = !this.vol;
+  }
 
 }
