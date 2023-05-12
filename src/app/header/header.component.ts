@@ -7,4 +7,9 @@ import { Component } from '@angular/core';
 })
 export class HeaderComponent {
 
+  vol: boolean = true;
+
+   volumeOnOff(): void {
+     this.vol = !this.vol;
+   }
 }

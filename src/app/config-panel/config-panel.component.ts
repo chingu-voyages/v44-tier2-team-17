@@ -24,15 +24,6 @@ export class ConfigPanelComponent {
   }
 
 
-
-  // turnig volume on and off
-  vol: boolean = true;
-
-  volumeOnOff(): void {
-    this.vol = !this.vol;
-  }
-
-
   // checking bots unique name
 
   uniqueName() {

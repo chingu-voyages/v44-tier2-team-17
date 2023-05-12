@@ -1,7 +1,7 @@
 form {
     .one-bot {
-        margin-top: 20px;
-        margin-bottom: 45px;
+        margin-top: 15px;
+        margin-bottom: 50px;
         max-height: 270px;
 
         small {
@@ -66,29 +66,14 @@ form {
 
         }
     }
-}
-
-
-
-.music-volume {
-    display: block;
 
     button {
         background-color: rgb(255 255 255 / 40%);
-        border-radius: 100px;
+        border-radius: 20px;
         color: #000;
         cursor: pointer;
         padding: 0 5px;
-        margin-bottom: 5px;
-        margin-right: 5px;
+        display: block;
+        margin: 0 auto;
     }
-
-    i {
-        padding: 10px;
-        border-radius: 50%;
-        border: 1px solid;
-        background-color: #ffff006e;
-        cursor: pointer;
-    }
-
 }
