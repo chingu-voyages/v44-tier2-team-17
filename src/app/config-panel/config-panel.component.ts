@@ -21,6 +21,7 @@ export class ConfigPanelComponent {
 
   clearForm() {
     this.startGameForm.reset();
+    this.uniqueName();
   }
 
 
