@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-config-panel',
@@ -7,10 +8,47 @@ import { Component } from '@angular/core';
 })
 export class ConfigPanelComponent {
 
+  // form validation
+
+  startGameForm: FormGroup = new FormGroup({
+    bot_name1: new FormControl("", [Validators.required]), //min length?
+    bot_name2: new FormControl("", [Validators.required])
+  })
+
+  get botName1() { return this.startGameForm.get('bot_name1'); }
+  get botName2() { return this.startGameForm.get('bot_name2'); }
+
+
+  clearForm() {
+    this.startGameForm.reset();
+  }
+
+
+
+  // turnig volume on and off
   vol: boolean = true;
 
   volumeOnOff(): void {
     this.vol = !this.vol;
   }
+
+
+  // checking bots unique name
+
+  uniqueName() {
+
+    let inp1: any = document.getElementById("in1");
+    let inp2: any = document.getElementById("in2");
+
+    let err: any = document.querySelector('.error');
+
+    if (inp1.value === inp2.value && inp1.value !== '') {
+      err.innerHTML = 'It has to be a uniqe name';
+    } else {
+      err.innerHTML = '';
+    }
+
+  }
+
 
 }

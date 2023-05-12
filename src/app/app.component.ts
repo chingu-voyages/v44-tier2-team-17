@@ -13,12 +13,15 @@ export class AppComponent {
   battleBtn(): void {
     this.play = !this.play;
 
-    let btn: any = document.querySelector('.action-btn');
+    // (color change)
 
-    if (this.play) {
-      btn.style.backgroundColor = '#88d988';
-    } else {
-      btn.style.backgroundColor = 'rgb(255 0 0 / 79%)';
-    }
+
+    // let btn: any = document.querySelector('.action-btn');
+
+    // if (this.play) {
+    //   btn.style.backgroundColor = '#88d988';
+    // } else {
+    //   btn.style.backgroundColor = 'rgb(255 0 0 / 79%)';
+    // }
   }
 }

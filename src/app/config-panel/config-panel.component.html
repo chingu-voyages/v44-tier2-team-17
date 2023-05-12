@@ -1,8 +1,9 @@
-<div class="bots-form">
+<form [formGroup]="startGameForm">
 
     <div class="one-bot">
-        <h4>Bot 1</h4>
-        <input type="text" placeholder="Enter name">
+        <h5>Bot 1</h5>
+        <input (keyup)="uniqueName()" formControlName="bot_name1" id="in1" type="text" placeholder="Enter name">
+        <small *ngIf="botName1?.touched && botName1?.errors?.['required']" class="text-danger">Name is required</small>
 
         <label for="">Choose Boolean value</label><br>
         <select name="" id="">
@@ -42,8 +43,10 @@
 
 
     <div class="one-bot">
-        <h4>Bot 2</h4>
-        <input type="text" placeholder="Enter name">
+        <h5>Bot 2</h5>
+        <input (keyup)="uniqueName()" formControlName="bot_name2"  id="in2" type="text" placeholder="Enter name"><br>
+        <small *ngIf="botName2?.touched && botName2?.errors?.['required']" class="text-danger">Name is required</small>
+        <small class="error text-danger"></small>
 
         <label for="">Choose Boolean value</label><br>
         <select name="" id="">
@@ -80,8 +83,14 @@
             </optgroup>
         </select>
     </div>
-</div>
+</form>
 
 <div class="music-volume">
+    <button (click)="clearForm()" type="button">Clear Form</button>
     <i (click)="volumeOnOff()" class="fa-solid {{vol ? 'fa-volume-high' : 'fa-volume-xmark'}}"></i>
 </div>
+
+
+
+
+<!-- [disabled]="startGameForm.invalid" -->
