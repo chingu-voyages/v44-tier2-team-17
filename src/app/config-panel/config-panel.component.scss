@@ -15,6 +15,10 @@ form {
             &:focus {
                 outline: none;
             }
+
+            &.ng-invalid.ng-touched{
+                border-color: red;
+            }
         }
 
         label {

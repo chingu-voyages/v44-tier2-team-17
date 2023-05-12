@@ -6,18 +6,18 @@
         <small *ngIf="botName1?.touched && botName1?.errors?.['required']" class="text-danger">Name is required</small>
 
         <label for="">Choose Boolean value</label><br>
-        <select name="" id="">
+        <select formControlName="boolean_val1" name="" id="">
             <optgroup>
-                <option value="">--</option>
+                <option value="" hidden>--</option>
                 <option value="">0</option>
                 <option value="">1</option>
             </optgroup>
         </select>
 
         <label for="">Choose Boolean operation</label><br>
-        <select name="" id="">
+        <select formControlName="boolean_op1" name="" id="">
             <optgroup>
-                <option value="">--</option>
+                <option value="" hidden>--</option>
                 <option value="">AND</option>
                 <option value="">OR</option>
                 <option value="">XOR</option>
@@ -30,9 +30,9 @@
         </div>
 
         <label for="">Choose direction</label><br>
-        <select name="" id="">
+        <select formControlName="direction1" name="" id="">
             <optgroup>
-                <option value="">--</option>
+                <option value="" hidden>--</option>
                 <option value="">North</option>
                 <option value="">East</option>
                 <option value="">West</option>
@@ -49,18 +49,18 @@
         <small class="error text-danger"></small>
 
         <label for="">Choose Boolean value</label><br>
-        <select name="" id="">
+        <select formControlName="boolean_val2" name="" id="">
             <optgroup>
-                <option value="">--</option>
+                <option value="" hidden>--</option>
                 <option value="">0</option>
                 <option value="">1</option>
             </optgroup>
         </select>
 
         <label for="">Choose Boolean operation</label><br>
-        <select name="" id="">
+        <select formControlName="boolean_op2" name="" id="">
             <optgroup>
-                <option value="">--</option>
+                <option value="" hidden>--</option>
                 <option value="">AND</option>
                 <option value="">OR</option>
                 <option value="">XOR</option>
@@ -73,9 +73,9 @@
         </div>
 
         <label for="">Choose direction</label><br>
-        <select name="" id="">
+        <select formControlName="direction2" name="" id="">
             <optgroup>
-                <option value="">--</option>
+                <option value="" hidden>--</option>
                 <option value="">North</option>
                 <option value="">East</option>
                 <option value="">West</option>
