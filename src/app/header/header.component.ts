@@ -9,7 +9,12 @@ export class HeaderComponent {
 
   vol: boolean = true;
 
-   volumeOnOff(): void {
-     this.vol = !this.vol;
-   }
+  volumeOnOff(): void {
+    this.vol = !this.vol;
+
+    let audio = new Audio();
+    audio.src = '../assets/volume.wav';
+    audio.load();
+    audio.play();
+  }
 }
