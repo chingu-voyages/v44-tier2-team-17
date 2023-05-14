@@ -14,21 +14,6 @@
             </optgroup>
         </select><br>
 
-        <label for="">Choose Boolean operation</label><br>
-        <select formControlName="boolean_op1" name="" id="">
-            <optgroup>
-                <option value="" hidden>--</option>
-                <option value="">AND</option>
-                <option value="">OR</option>
-                <option value="">XOR</option>
-                <option value="">NOT</option>
-            </optgroup>
-        </select><br>
-
-        <div class="slider-line">
-            <i class="fa-solid fa-bolt"></i>
-        </div>
-
         <label for="">Choose direction</label><br>
         <select formControlName="direction1" name="" id="">
             <optgroup>
@@ -44,7 +29,7 @@
 
     <div class="one-bot">
         <h5>Bot 2</h5>
-        <input (keyup)="uniqueName()" formControlName="bot_name2"  id="in2" type="text" placeholder="Enter name"><br>
+        <input (keyup)="uniqueName()" formControlName="bot_name2" id="in2" type="text" placeholder="Enter name"><br>
         <small *ngIf="botName2?.touched && botName2?.errors?.['required']" class="text-danger">Name is required</small>
         <small class="error text-danger"></small>
 
@@ -57,21 +42,6 @@
             </optgroup>
         </select><br>
 
-        <label for="">Choose Boolean operation</label><br>
-        <select formControlName="boolean_op2" name="" id="">
-            <optgroup>
-                <option value="" hidden>--</option>
-                <option value="">AND</option>
-                <option value="">OR</option>
-                <option value="">XOR</option>
-                <option value="">NOT</option>
-            </optgroup>
-        </select><br>
-
-        <div class="slider-line">
-            <i class="fa-solid fa-bolt"></i>
-        </div>
-
         <label for="">Choose direction</label><br>
         <select formControlName="direction2" name="" id="">
             <optgroup>
@@ -82,6 +52,21 @@
                 <option value="">South</option>
             </optgroup>
         </select>
+    </div>
+
+    <label for="">Choose Boolean operation</label><br>
+    <select formControlName="boolean_op1" name="" id="">
+        <optgroup>
+            <option value="" hidden>--</option>
+            <option value="">AND</option>
+            <option value="">OR</option>
+            <option value="">XOR</option>
+            <option value="">NOT</option>
+        </optgroup>
+    </select><br>
+
+    <div class="slider-line">
+        <i class="fa-solid fa-bolt"></i>
     </div>
 
     <button (click)="clearForm()" type="button">Clear Form</button>

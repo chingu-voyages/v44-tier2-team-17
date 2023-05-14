@@ -51,7 +51,6 @@ export class ConfigPanelComponent {
       err.innerHTML = 'It has to be a uniqe name';
       inp1.style.borderColor = 'red';
       inp2.style.borderColor = 'red';
-
     } else {
       err.innerHTML = '';
       inp1.style.borderColor = '';
