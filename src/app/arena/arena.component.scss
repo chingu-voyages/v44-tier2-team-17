@@ -14,15 +14,122 @@
   height: calc(100vh - toRem(280));
   background-color: black;
   border-radius: toRem(20);
+  box-shadow: 4px 4px 10px grey;
 
   .background {
     width: calc(100% - 2rem);
     height: calc(100% - 2rem);
     border-radius: toRem(10);
-    background-color: #61c6f0;
+    background-color: #818080;
   }
 
   h1 {
     position: absolute;
   }
+
+  .circles {
+
+    span {
+      content: '';
+      height: 25px;
+      width: 25px;
+      border-radius: 50%;
+      border: 1px solid #ddcbcb;
+      background-color: $dark-brown-col;
+      position: absolute;
+      z-index: 1;
+
+      &:nth-child(1) {
+        top: 10px;
+        left: 10px;
+      }
+
+      &:nth-child(2) {
+        top: 10px;
+        right: 10px;
+      }
+
+      &:nth-child(3) {
+        bottom: 10px;
+        right: 10px;
+      }
+
+      &:nth-child(4) {
+        bottom: 10px;
+        left: 10px;
+      }
+
+      &:nth-child(5) {
+        top: 40px;
+        left: 40px;
+      }
+
+      &:nth-child(6) {
+        top: 40px;
+        right: 40px;
+      }
+
+      &:nth-child(7) {
+        bottom: 40px;
+        left: 40px;
+      }
+
+      &:nth-child(8) {
+        bottom: 40px;
+        right: 40px;
+      }
+    }
+
+  }
+
+  .rope-out {
+    border: 8px solid #ddcbcb;
+    position: absolute;
+    width: calc(100% - 2rem);
+    height: calc(100% - 2rem);
+    box-shadow: 0px 0px 10px black inset;
+  }
+
+  .rope-in {
+    border: 8px solid $dark-brown-col;
+    position: absolute;
+    width: calc(100% - 6rem);
+    height: calc(100% - 6rem);
+    box-shadow: 0px 0px 18px white inset;
+  }
+
+
+  .connect-lines {
+    span {
+      width: 12px;
+      height: 35px;
+      background-color: black;
+      position: absolute;
+
+      &:first-child {
+        top: 23px;
+        left: 34px;
+        transform: rotate(-45deg);
+      }
+  
+      &:nth-child(2) {
+        top: 23px;
+        right: 34px;
+        transform: rotate(45deg);
+      }
+  
+      &:nth-child(3) {
+        bottom: 23px;
+        left: 34px;
+        transform: rotate(45deg);
+      }
+  
+      &:last-child {
+        bottom: 23px;
+        right: 34px;
+        transform: rotate(-45deg);
+      }
+    }
+  }
+
 }

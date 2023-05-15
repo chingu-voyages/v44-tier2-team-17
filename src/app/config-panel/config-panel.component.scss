@@ -46,7 +46,7 @@ form {
     height: toRem(15);
     display: block;
     margin: toRem(20) auto toRem(40) auto;
-    background-color: #431e15;
+    background-color: $dark-brown-col;
     border-radius: toRem(20);
     position: relative;
     cursor: pointer;
@@ -55,7 +55,7 @@ form {
       background-color: #ddcbcb;
       color: yellow;
       padding: toRem(8);
-      border: toRem(1) solid #431e15;
+      border: toRem(1) solid $dark-brown-col;
       border-radius: 50%;
       position: absolute;
       top: 50%;

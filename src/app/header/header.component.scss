@@ -1,7 +1,7 @@
 @import "../shared/shared";
 
 div {
-  background-color: #431e15;
+  background-color: $dark-brown-col;
   height: toRem(70);
   display: flex;
   justify-content: center;
