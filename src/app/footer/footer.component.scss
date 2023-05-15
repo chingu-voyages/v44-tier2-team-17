@@ -1,10 +1,12 @@
+@import "../shared/shared";
+
 a {
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    font-size: 14px;
-    background-color: #431e15;
-    color: wheat;
-    height: 50px;
-    padding-right: 20px;
-  }
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  font-size: toRem(14);
+  background-color: #431e15;
+  color: wheat;
+  height: toRem(50);
+  padding-right: toRem(20);
+}

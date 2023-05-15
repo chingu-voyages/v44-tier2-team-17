@@ -4,18 +4,18 @@
       <app-config-panel></app-config-panel>
     </div>
 
-    <div class="col-8">
+    <div class="col-8 flex">
       <app-header></app-header>
       <app-arena></app-arena>
-        <button (click)="battleBtn()" class="action-btn">{{play ? 'Battle!' : 'Stop!'}}</button>
+      <button (click)="battleBtn()" class="action-btn">
+        {{ play ? "Battle!" : "Stop!" }}
+      </button>
     </div>
-    
+
     <div class="col-2">
       <app-leaderboard></app-leaderboard>
     </div>
   </div>
-
-
 </main>
 
 <footer>

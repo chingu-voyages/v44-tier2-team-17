@@ -1,42 +1,48 @@
+@import "../shared/shared";
+
+:host {
+  padding: 3rem 1rem 0;
+}
+
 div {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+
+  .pin {
+    position: relative;
+    background-color: #431e15;
+    height: toRem(20);
+    width: toRem(130);
+
+    i {
+      color: white;
+      position: absolute;
+      top: -1rem;
+    }
+  }
+
+  .score {
+    background-color: white;
+    height: auto;
+    width: toRem(180);
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    align-items: start;
 
-    .pin {
-        background-color: #431e15;
-        height: 20px;
-        width: 130px;
+    ul {
+      padding: toRem(10);
+      list-style: none;
+      width: 100%;
+      margin: 0;
 
-        i {
-            color: white;
-            position: absolute;
-            top: 130px;
-        }
+      li {
+        padding: toRem(5);
+        margin: toRem(5) 0;
+        border-radius: toRem(5);
+        // background-color: rgb(188, 186, 186);
+        background-color: #ddcbcb;
+      }
     }
-
-    .score {
-        background-color: white;
-        height: auto;
-        width: 180px;
-        display: flex;
-        align-items: start;
-
-        ul {
-            padding: 10px;
-            list-style: none;
-            width: 100%;
-            margin: 0;
-
-            li {
-                padding: 5px;
-                margin: 5px 0;
-                border-radius: 5px;
-                // background-color: rgb(188, 186, 186);
-                background-color: #ddcbcb;
-            }
-
-        }
-    }
+  }
 }
