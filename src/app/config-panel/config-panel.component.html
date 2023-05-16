@@ -1,79 +1,95 @@
-<form [formGroup]="startGameForm">
+<form class="main-form" [formGroup]="gameForm">
+  <div class="form-array" formArrayName="gameFormArray">
+    <ng-container *ngFor="let form of gameFormArray.controls; let i = index">
+      <form class="form" [formGroup]="form">
+        <h5>Bot {{ i + 1 }}</h5>
 
-    <div class="one-bot">
-        <h5>Bot 1</h5>
-        <input (keyup)="uniqueName()" formControlName="bot_name1" id="in1" type="text" placeholder="Enter name">
-        <small *ngIf="botName1?.touched && botName1?.errors?.['required']" class="text-danger">Name is required</small>
+        <div class="form__input">
+          <input
+            formControlName="bot_name"
+            id="in1"
+            type="text"
+            placeholder="Enter name"
+          /><br />
+          <small
+            *ngIf="botName(form)?.touched && botName(form)?.errors?.['required']"
+            class="text-danger"
+            >Name is required</small
+          >
+        </div>
 
-        <label for="">Choose Boolean value</label><br>
-        <select formControlName="boolean_val1" name="" id="">
+        <div class="form__input">
+          <label for="boolean_val">Boolean value</label><br />
+          <select formControlName="boolean_val" name="boolean_val" id="">
             <optgroup>
-                <option value="" hidden>--</option>
-                <option value="">0</option>
-                <option value="">1</option>
+              <option value="" hidden>--</option>
+              <option value="">0</option>
+              <option value="">1</option>
             </optgroup>
-        </select><br>
+          </select>
+        </div>
 
-        <label for="">Choose direction</label><br>
-        <select formControlName="direction1" name="" id="">
+        <div class="form__input">
+          <label for="direction">direction</label><br />
+          <select formControlName="direction" name="direction" id="">
             <optgroup>
-                <option value="" hidden>--</option>
-                <option value="">North</option>
-                <option value="">East</option>
-                <option value="">West</option>
-                <option value="">South</option>
+              <option value="" hidden>--</option>
+              <option value="">North</option>
+              <option value="">East</option>
+              <option value="">West</option>
+              <option value="">South</option>
             </optgroup>
-        </select>
-    </div>
+          </select>
+        </div>
 
+        <button class="btn__margin" (click)="clearForm(form)" type="button">
+          Clear Form
+        </button>
+      </form>
+    </ng-container>
+  </div>
 
-    <div class="one-bot">
-        <h5>Bot 2</h5>
-        <input (keyup)="uniqueName()" formControlName="bot_name2" id="in2" type="text" placeholder="Enter name"><br>
-        <small *ngIf="botName2?.touched && botName2?.errors?.['required']" class="text-danger">Name is required</small>
-        <small class="error text-danger"></small>
-
-        <label for="">Choose Boolean value</label><br>
-        <select formControlName="boolean_val2" name="" id="">
-            <optgroup>
-                <option value="" hidden>--</option>
-                <option value="">0</option>
-                <option value="">1</option>
-            </optgroup>
-        </select><br>
-
-        <label for="">Choose direction</label><br>
-        <select formControlName="direction2" name="" id="">
-            <optgroup>
-                <option value="" hidden>--</option>
-                <option value="">North</option>
-                <option value="">East</option>
-                <option value="">West</option>
-                <option value="">South</option>
-            </optgroup>
-        </select>
-    </div>
-
-    <label for="">Choose Boolean operation</label><br>
-    <select formControlName="boolean_op1" name="" id="">
+  <div class="general-control">
+    <div class="form__input">
+      <label for="boolean_op">Boolean operation</label><br />
+      <select formControlName="boolean_op" name="boolean_op" id="">
         <optgroup>
-            <option value="" hidden>--</option>
-            <option value="">AND</option>
-            <option value="">OR</option>
-            <option value="">XOR</option>
-            <option value="">NOT</option>
+          <option value="" hidden>--</option>
+          <option value="">AND</option>
+          <option value="">OR</option>
+          <option value="">XOR</option>
+          <option value="">NOT</option>
         </optgroup>
-    </select><br>
+      </select>
+    </div>
 
     <div class="slider-line">
-        <i class="fa-solid fa-bolt"></i>
+      <i class="fa-solid fa-bolt"></i>
     </div>
 
-    <button (click)="clearForm()" type="button">Clear Form</button>
+    <div class="general__control-btns">
+      <button
+        class="btn__margin"
+        *ngIf="gameFormArray.length < 10"
+        (click)="addForm()"
+        type="button"
+      >
+        + Add Form
+      </button>
+      <button
+        class="btn__margin"
+        *ngIf="gameFormArray.length > 2"
+        (click)="removeForm()"
+        type="button"
+      >
+        - Remove Form
+      </button>
 
+      <button class="btn__margin" (click)="clearAllForm()" type="button">
+        Clear All Form
+      </button>
+    </div>
+  </div>
 </form>
-
-
-
 
 <!-- [disabled]="startGameForm.invalid" -->

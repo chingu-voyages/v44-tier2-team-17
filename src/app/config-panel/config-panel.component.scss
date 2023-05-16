@@ -1,76 +1,116 @@
 @import "../shared/shared";
 
-form {
-  .one-bot {
-    height: toRem(240);
+:host {
+  padding: 0 1rem;
+}
 
-    input {
-      border-radius: toRem(8);
-      padding: toRem(3);
+.main-form {
+  @include column-flex();
+  gap: 2rem;
+  width: 100%;
+  height: 100%;
+  // justify-content: space-between;
+  padding: 2rem 0;
+}
 
-      &:focus {
-        outline: none;
-      }
+.form {
+  @include column-flex();
+  gap: toRem(16);
+}
 
-      &.ng-invalid.ng-touched {
-        border-color: red;
-      }
-    }
+.form-array {
+  @include column-flex();
+  overflow-y: auto;
+  gap: toRem(16);
+}
 
-    label {
-      margin: toRem(3) 0;
-      font-size: toRem(15);
-    }
+.form__input {
+  label {
+    margin-bottom: toRem(8);
   }
+}
 
-  select {
-    background-color: rgb(255 255 255 / 40%);
-    border-radius: toRem(100);
-    color: #000;
-    cursor: pointer;
-    padding: 0 toRem(5);
-    margin-bottom: toRem(5);
+.general__control-btns {
+  @include column-flex();
+  align-items: flex-end;
+  gap: toRem(16);
+  width: 100%;
+}
 
-    &:hover {
-      border: toRem(1) solid hsla(0, 0%, 100%, 0.2);
-      background-color: rgba(0, 15, 30, 0.4);
-    }
+.btn__margin {
+  margin: 0 1rem;
+  align-self: flex-end;
+}
+
+.one-bot {
+  height: toRem(240);
+
+  input {
+    border-radius: toRem(8);
+    padding: toRem(3);
 
     &:focus {
       outline: none;
     }
-  }
 
-  .slider-line {
-    width: 100%;
-    height: toRem(15);
-    display: block;
-    margin: toRem(20) auto toRem(40) auto;
-    background-color: $dark-brown-col;
-    border-radius: toRem(20);
-    position: relative;
-    cursor: pointer;
-
-    i {
-      background-color: #ddcbcb;
-      color: yellow;
-      padding: toRem(8);
-      border: toRem(1) solid $dark-brown-col;
-      border-radius: 50%;
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
+    &.ng-invalid.ng-touched {
+      border-color: red;
     }
   }
 
-  button {
-    background-color: rgb(255 255 255 / 40%);
-    border-radius: toRem(20);
-    color: #000;
-    cursor: pointer;
-    padding: 0 toRem(5);
-    display: block;
-    margin: 0 auto;
+  label {
+    margin: toRem(3) 0;
+    font-size: toRem(15);
   }
+}
+
+select {
+  background-color: rgb(255 255 255 / 40%);
+  border-radius: toRem(100);
+  color: #000;
+  cursor: pointer;
+  padding: 0 toRem(5);
+  margin-bottom: toRem(5);
+
+  &:hover {
+    border: toRem(1) solid hsla(0, 0%, 100%, 0.2);
+    background-color: rgba(0, 15, 30, 0.4);
+  }
+
+  &:focus {
+    outline: none;
+  }
+}
+
+.slider-line {
+  width: 100%;
+  height: toRem(15);
+  display: block;
+  margin: toRem(20) auto toRem(40) auto;
+  background-color: $dark-brown-col;
+  border-radius: toRem(20);
+  position: relative;
+  cursor: pointer;
+
+  i {
+    background-color: #ddcbcb;
+    color: yellow;
+    padding: toRem(8);
+    border: toRem(1) solid $dark-brown-col;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
+
+button {
+  background-color: rgb(255 255 255 / 40%);
+  border-radius: toRem(20);
+  color: #000;
+  cursor: pointer;
+  padding: 0 toRem(5);
+  display: block;
+  margin: 0 auto;
 }
