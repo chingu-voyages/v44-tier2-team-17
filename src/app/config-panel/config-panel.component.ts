@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormArray, FormControl, FormGroup, Validators } from '@angular/forms';
 import { forbiddenNameValidator } from './../shared/shared.function';
+import { SharedService } from './../shared/shared.service';
 
 @Component({
   selector: 'app-config-panel',
@@ -8,25 +9,12 @@ import { forbiddenNameValidator } from './../shared/shared.function';
   styleUrls: ['./config-panel.component.scss'],
 })
 export class ConfigPanelComponent implements OnInit {
-  gameForm = new FormGroup({
-    gameFormArray: new FormArray([
-      new FormGroup({
-        bot_name: new FormControl('', [Validators.required]), //min length?
-        boolean_val: new FormControl('', [Validators.required]),
-        direction: new FormControl('', [Validators.required]),
-      }),
-      new FormGroup({
-        bot_name: new FormControl('', [Validators.required]), //min length?
-        boolean_val: new FormControl('', [Validators.required]),
-        direction: new FormControl('', [Validators.required]),
-      }),
-    ]),
-    boolean_op: new FormControl('', [Validators.required]),
-  });
+  gameForm!: FormGroup;
 
-  constructor() {}
+  constructor(public sharedService: SharedService) {}
 
   ngOnInit(): void {
+    this.gameForm = this.sharedService.gameForm;
     this.setValidator();
   }
 
@@ -60,7 +48,6 @@ export class ConfigPanelComponent implements OnInit {
 
   clearForm(form: FormGroup) {
     form.reset();
-    // this.uniqueName();
     let audio = new Audio();
     audio.src = '../assets/clear.wav';
     audio.load();

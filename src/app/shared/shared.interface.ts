@@ -1,4 +1,4 @@
-export interface Tile {
+export interface Pos {
   row: number;
   col: number;
 }

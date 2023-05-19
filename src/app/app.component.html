@@ -7,7 +7,11 @@
     <div class="col-8 flex">
       <app-header></app-header>
       <app-arena></app-arena>
-      <button disabled (click)="battleBtn()" class="action-btn">
+      <button
+        [disabled]="sharedService.gameForm.invalid"
+        (click)="battleBtn()"
+        class="action-btn"
+      >
         {{ play ? "Battle!" : "Stop!" }}
       </button>
     </div>

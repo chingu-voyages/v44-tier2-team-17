@@ -1,14 +1,23 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+
+import { FormGroup } from '@angular/forms';
+import { SharedService } from './shared/shared.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.scss'],
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'voyage';
-
   play: boolean = true;
+  gameForm!: FormGroup;
+
+  constructor(public sharedService: SharedService) {}
+
+  ngOnInit(): void {
+    this.gameForm = this.sharedService.gameForm;
+  }
 
   battleBtn(): void {
     this.play = !this.play;
@@ -19,7 +28,6 @@ export class AppComponent {
     audio.play();
 
     // (color change)
-
 
     // let btn: any = document.querySelector('.action-btn');
 
