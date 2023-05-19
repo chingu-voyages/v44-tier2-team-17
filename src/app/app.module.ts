@@ -9,6 +9,7 @@ import { ConfigPanelComponent } from './config-panel/config-panel.component';
 import { FooterComponent } from './footer/footer.component';
 import { HeaderComponent } from './header/header.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { BotComponent } from './bot/bot.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     LeaderboardComponent,
     ConfigPanelComponent,
     FooterComponent,
-    HeaderComponent
+    HeaderComponent,
+    BotComponent
   ],
   imports: [
     BrowserModule,

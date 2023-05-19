@@ -27,6 +27,14 @@ export class ConfigPanelComponent {
     return form.get('bot_name');
   }
 
+  booleanVal(form: FormGroup) {
+    return form.get('boolean_val');
+  }
+
+  direction(form: FormGroup) {
+    return form.get('direction');
+  }
+
   get gameFormArray() {
     return <FormArray<FormGroup>>this.gameForm.get('gameFormArray');
   }
