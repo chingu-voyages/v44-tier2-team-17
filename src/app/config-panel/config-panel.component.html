@@ -6,6 +6,10 @@
 
         <div class="form__input">
           <input
+            [ngStyle]="{
+              'border-color':
+                botName(form)?.touched && botName(form)?.invalid ? 'red' : ''
+            }"
             formControlName="bot_name"
             id="in1"
             type="text"
@@ -16,6 +20,11 @@
             class="text-danger"
             >Name is required</small
           >
+          <small
+            *ngIf="botName(form)?.dirty && botName(form)?.errors?.['forbiddenName']"
+            class="text-danger"
+            >Name must be unique</small
+          >
         </div>
 
         <div class="form__input">
@@ -23,8 +32,13 @@
           <select formControlName="boolean_val" name="boolean_val" id="">
             <option value>--</option>
             <option value="0">0</option>
-            <option value="1">1</option>
-          </select>
+            <option value="1">1</option></select
+          ><br />
+          <small
+            *ngIf="booleanVal(form)?.touched && booleanVal(form)?.errors?.['required']"
+            class="text-danger"
+            >Boolean is required</small
+          >
         </div>
 
         <div class="form__input">
@@ -35,8 +49,13 @@
             <option value="north">North</option>
             <option value="west">West</option>
             <option value="east">East</option>
-            <option value="south">South</option>
-          </select>
+            <option value="south">South</option></select
+          ><br />
+          <small
+            *ngIf="direction(form)?.touched && direction(form)?.errors?.['required']"
+            class="text-danger"
+            >Direction is required</small
+          >
         </div>
 
         <button class="btn__margin" (click)="clearForm(form)" type="button">

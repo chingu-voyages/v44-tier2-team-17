@@ -7,7 +7,7 @@
     <div class="col-8 flex">
       <app-header></app-header>
       <app-arena></app-arena>
-      <button (click)="battleBtn()" class="action-btn">
+      <button disabled (click)="battleBtn()" class="action-btn">
         {{ play ? "Battle!" : "Stop!" }}
       </button>
     </div>

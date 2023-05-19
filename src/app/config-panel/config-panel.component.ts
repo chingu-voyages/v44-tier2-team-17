@@ -1,12 +1,13 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormArray, FormControl, FormGroup, Validators } from '@angular/forms';
+import { forbiddenNameValidator } from './../shared/shared.function';
 
 @Component({
   selector: 'app-config-panel',
   templateUrl: './config-panel.component.html',
   styleUrls: ['./config-panel.component.scss'],
 })
-export class ConfigPanelComponent {
+export class ConfigPanelComponent implements OnInit {
   gameForm = new FormGroup({
     gameFormArray: new FormArray([
       new FormGroup({
@@ -23,6 +24,20 @@ export class ConfigPanelComponent {
     boolean_op: new FormControl('', [Validators.required]),
   });
 
+  constructor() {}
+
+  ngOnInit(): void {
+    this.setValidator();
+  }
+
+  get gameFormArray() {
+    return <FormArray<FormGroup>>this.gameForm.get('gameFormArray');
+  }
+
+  nestedFormArray(index: number) {
+    return this.gameFormArray.controls[index];
+  }
+
   botName(form: FormGroup) {
     return form.get('bot_name');
   }
@@ -35,12 +50,12 @@ export class ConfigPanelComponent {
     return form.get('direction');
   }
 
-  get gameFormArray() {
-    return <FormArray<FormGroup>>this.gameForm.get('gameFormArray');
-  }
-
-  nestedFormArray(index: number) {
-    return this.gameFormArray.controls[index];
+  setValidator() {
+    this.gameFormArray.controls.forEach((form) => {
+      this.botName(form)?.addValidators(
+        forbiddenNameValidator(this.gameFormArray)
+      );
+    });
   }
 
   clearForm(form: FormGroup) {
@@ -70,23 +85,5 @@ export class ConfigPanelComponent {
   removeForm() {
     const { length } = this.gameFormArray;
     if (length > 2) this.gameFormArray.removeAt(this.gameFormArray.length - 1);
-  }
-
-  // checking bots unique name
-  uniqueName() {
-    let inp1: any = document.getElementById('in1');
-    let inp2: any = document.getElementById('in2');
-
-    let err: any = document.querySelector('.error');
-
-    if (inp1.value === inp2.value && inp1.value !== '') {
-      err.innerHTML = 'It has to be a uniqe name';
-      inp1.style.borderColor = 'red';
-      inp2.style.borderColor = 'red';
-    } else {
-      err.innerHTML = '';
-      inp1.style.borderColor = '';
-      inp2.style.borderColor = '';
-    }
   }
 }

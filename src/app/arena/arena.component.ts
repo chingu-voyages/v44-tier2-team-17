@@ -13,7 +13,6 @@ export class ArenaComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.getTileArr();
-    console.log(this.tiles);
   }
 
   getTileArr(): void {
