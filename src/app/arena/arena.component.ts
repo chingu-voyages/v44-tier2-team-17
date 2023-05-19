@@ -16,6 +16,10 @@ export class ArenaComponent implements OnInit, OnDestroy {
   constructor(private sharedService: SharedService) {}
 
   ngOnInit(): void {
+    this.initialize();
+  }
+
+  initialize() {
     this.gameForm = this.sharedService.gameForm;
     this.genTileArr();
     this.genPosArr();
@@ -33,8 +37,6 @@ export class ArenaComponent implements OnInit, OnDestroy {
   genTileArr(): void {
     for (let i = 0; i < 8 * 8; i++) this.tiles.push(i);
   }
-
-  getRandomPos() {}
 
   genPosArr(): void {
     const num: number = 8;
