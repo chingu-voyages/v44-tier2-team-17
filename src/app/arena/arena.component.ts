@@ -60,16 +60,5 @@ export class ArenaComponent implements OnInit, OnDestroy {
     }
   }
 
-  // getTileArr(): void {
-  //   const num: number = 8;
-  //   const length: number = Math.pow(num, 2);
-
-  //   for (let i = 0; i < length; i++) {
-  //     const [row, col] = i.toString(num).padStart(2, '0');
-
-  //     this.tiles.push({ row: +row, col: +col });
-  //   }
-  // }
-
   ngOnDestroy(): void {}
 }
