@@ -18,8 +18,15 @@
           <small
             *ngIf="botName(form)?.touched && botName(form)?.errors?.['required']"
             class="text-danger"
-            >Name is required</small
           >
+            Name is required
+          </small>
+          <small
+            *ngIf="botName(form)?.touched && botName(form)?.errors?.['minLength']"
+            class="text-danger"
+          >
+            Minimum of three characters
+          </small>
           <small
             *ngIf="botName(form)?.dirty && botName(form)?.errors?.['forbiddenName']"
             class="text-danger"

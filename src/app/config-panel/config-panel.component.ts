@@ -73,13 +73,18 @@ export class ConfigPanelComponent implements OnInit {
 
   addForm() {
     const form: FormGroup = new FormGroup({
-      bot_name: new FormControl('', [Validators.required]), //min length?
+      bot_name: new FormControl('', [
+        Validators.required,
+        forbiddenNameValidator(this.gameFormArray),
+      ]),
       boolean_val: new FormControl('', [Validators.required]),
       direction: new FormControl('', [Validators.required]),
     });
 
     const { length } = this.gameFormArray;
-    if (length < 10) this.gameFormArray.push(form);
+    if (length < 10) {
+      this.gameFormArray.push(form);
+    }
   }
 
   removeForm() {
