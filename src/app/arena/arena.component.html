@@ -18,6 +18,7 @@
 
     <ng-container *ngFor="let form of gameFormArray.controls; let i = index">
       <app-bot
+        *ngIf="form.valid"
         [ngStyle]="{
           left: calcPos(i, 'row'),
           top: calcPos(i, 'col')

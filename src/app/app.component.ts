@@ -12,6 +12,7 @@ export class AppComponent implements OnInit {
   title = 'voyage';
   play: boolean = true;
   gameForm!: FormGroup;
+  audio = new Audio('../assets/battle-btn.wav');
 
   constructor(public sharedService: SharedService) {}
 
@@ -20,10 +21,8 @@ export class AppComponent implements OnInit {
   }
 
   battleBtn(): void {
-    let audio = new Audio();
-    audio.src = '../assets/battle-btn.wav';
-    audio.load();
-    audio.play();
+    this.audio.load();
+    this.audio.play();
     this.sharedService.startGame$.next(this.play);
 
     this.play = !this.play;

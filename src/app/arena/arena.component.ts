@@ -52,7 +52,6 @@ export class ArenaComponent implements OnInit, AfterViewInit, OnDestroy {
 
   startGame() {
     this.bots = this.elRef.nativeElement.querySelectorAll('app-bot');
-    console.log(this.bots);
 
     this.bots.forEach((bot, idx) => {
       this.setNewPos(bot, idx);
