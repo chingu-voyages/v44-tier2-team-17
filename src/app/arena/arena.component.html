@@ -18,13 +18,31 @@
 
     <ng-container *ngFor="let form of gameFormArray.controls; let i = index">
       <app-bot
+        *ngIf="form.valid"
         [ngStyle]="{
           left: calcPos(i, 'row'),
           top: calcPos(i, 'col')
         }"
+      ></app-bot>
+    </ng-container>
+
+    <!-- <ng-container>
+      <app-bot
+        [ngStyle]="{
+          left: calcPos(56, 'row'),
+          top: calcPos(56, 'col')
+        }"
         *ngIf="form.valid"
       ></app-bot>
     </ng-container>
+    <ng-container>
+      <app-bot
+        [ngStyle]="{
+          left: calcPos(63, 'row'),
+          top: calcPos(63, 'col')
+        }"
+      ></app-bot>
+    </ng-container> -->
   </div>
 
   <div class="connect-lines">

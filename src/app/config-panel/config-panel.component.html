@@ -53,10 +53,10 @@
 
           <select formControlName="direction" name="direction" id="">
             <option value>--</option>
-            <option value="north">North</option>
-            <option value="west">West</option>
-            <option value="east">East</option>
-            <option value="south">South</option></select
+            <option value="N">North</option>
+            <option value="W">West</option>
+            <option value="E">East</option>
+            <option value="S">South</option></select
           ><br />
           <small
             *ngIf="direction(form)?.touched && direction(form)?.errors?.['required']"
@@ -91,7 +91,7 @@
     </div>
 
     <div class="general__control-btns">
-      <button
+      <!-- <button
         class="btn__margin"
         *ngIf="gameFormArray.length < 10"
         (click)="addForm()"
@@ -106,7 +106,7 @@
         type="button"
       >
         - Remove Form
-      </button>
+      </button> -->
 
       <button class="btn__margin" (click)="clearAllForm()" type="button">
         Clear All Form

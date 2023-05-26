@@ -20,12 +20,13 @@ export class AppComponent implements OnInit {
   }
 
   battleBtn(): void {
-    this.play = !this.play;
-
     let audio = new Audio();
     audio.src = '../assets/battle-btn.wav';
     audio.load();
     audio.play();
+    this.sharedService.startGame$.next(this.play);
+
+    this.play = !this.play;
 
     // (color change)
 

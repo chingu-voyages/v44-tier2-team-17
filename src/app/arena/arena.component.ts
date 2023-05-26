@@ -1,6 +1,12 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import {
+  Component,
+  ElementRef,
+  OnDestroy,
+  OnInit,
+  Renderer2,
+} from '@angular/core';
 import { FormArray, FormGroup } from '@angular/forms';
-import { Pos } from '../shared/shared.interface';
+import { Direction, Pos } from '../shared/shared.interface';
 import { SharedService } from '../shared/shared.service';
 
 @Component({
@@ -12,8 +18,13 @@ export class ArenaComponent implements OnInit, OnDestroy {
   tiles: number[] = [];
   pos: Pos[] = [];
   gameForm!: FormGroup;
+  bots!: NodeListOf<HTMLElement>;
 
-  constructor(private sharedService: SharedService) {}
+  constructor(
+    private sharedService: SharedService,
+    private elRef: ElementRef<HTMLElement>,
+    private render: Renderer2
+  ) {}
 
   ngOnInit(): void {
     this.initialize();
@@ -24,6 +35,20 @@ export class ArenaComponent implements OnInit, OnDestroy {
     this.genTileArr();
     this.genPosArr();
     this.shuffle();
+
+    this.sharedService.startGame$.subscribe({
+      next: (sub) => {
+        if (sub) this.startGame();
+      },
+    });
+  }
+
+  startGame() {
+    this.bots = this.elRef.nativeElement.querySelectorAll('app-bot');
+
+    this.bots.forEach((bot, idx) => {
+      this.setNewPos(bot, idx);
+    });
   }
 
   get gameFormArray() {
@@ -49,8 +74,59 @@ export class ArenaComponent implements OnInit, OnDestroy {
     }
   }
 
+  getDirection(): Direction {
+    const direction: Direction[] = ['N', 'W', 'E', 'S', 'NW', 'NE', 'SW', 'SE'];
+
+    return direction[Math.floor(Math.random() * direction.length)];
+  }
+
+  setNewPos(bot: HTMLElement, index: number) {
+    const form = this.nestedFormArray(index);
+    const direction: Direction = form.value.direction;
+    const size: number = (100 / 8) * 0.8;
+    console.log(direction);
+
+    switch (direction) {
+      case 'N':
+        this.render.setStyle(bot, 'top', `${0}%`);
+        break;
+
+      case 'W':
+        this.render.setStyle(bot, 'left', `${0}%`);
+        break;
+
+      case 'E':
+        this.render.setStyle(bot, 'left', `${100 - size}%`);
+        break;
+
+      case 'S':
+        this.render.setStyle(bot, 'top', `${100 - size}%`);
+        break;
+
+      case 'NW':
+        this.render.setStyle(bot, 'top', `${0}%`);
+        this.render.setStyle(bot, 'left', `${0}%`);
+        break;
+
+      case 'NE':
+        this.render.setStyle(bot, 'top', `${0}%`);
+        this.render.setStyle(bot, 'left', `${100 - size}%`);
+        break;
+
+      case 'SW':
+        this.render.setStyle(bot, 'top', `${100 - size}%`);
+        this.render.setStyle(bot, 'left', `${0}%`);
+        break;
+
+      case 'SE':
+        this.render.setStyle(bot, 'top', `${0}%`);
+        this.render.setStyle(bot, 'left', `${100 - size}%`);
+        break;
+    }
+  }
+
   calcPos(i: number, coord: 'row' | 'col'): string {
-    return `calc(((100% / 8) * ${this.pos[i][coord] + 0.5}) - 1.5rem)`;
+    return `${(100 / 8) * (this.pos[i][coord] + 0.5) - (100 / 8) * 0.4}%`;
   }
 
   shuffle() {

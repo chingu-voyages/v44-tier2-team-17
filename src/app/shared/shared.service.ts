@@ -1,10 +1,12 @@
 import { Injectable } from '@angular/core';
 import { FormArray, FormControl, FormGroup, Validators } from '@angular/forms';
+import { Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class SharedService {
+  startGame$ = new Subject<boolean>();
   gameForm = new FormGroup({
     gameFormArray: new FormArray([
       new FormGroup({
