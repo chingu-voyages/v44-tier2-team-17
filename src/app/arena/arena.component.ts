@@ -19,7 +19,7 @@ import { timer } from 'rxjs';
 export class ArenaComponent implements OnInit, AfterViewInit, OnDestroy {
   tiles: number[] = [];
   pos: Pos[] = [];
-  timers: number[] = [0, 200];
+  startTime: number[] = [0, 200];
   gameForm!: FormGroup;
   bots!: NodeListOf<HTMLElement>;
   speed: number = 20;
@@ -53,11 +53,11 @@ export class ArenaComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   shuffleTime() {
-    for (let i = this.timers.length - 1; i > 0; i--) {
-      let j = Math.floor(Math.random() * this.timers.length);
-      let temp = this.timers[i];
-      this.timers[i] = this.timers[j];
-      this.timers[j] = temp;
+    for (let i = this.startTime.length - 1; i > 0; i--) {
+      let j = Math.floor(Math.random() * this.startTime.length);
+      let temp = this.startTime[i];
+      this.startTime[i] = this.startTime[j];
+      this.startTime[j] = temp;
     }
   }
 
@@ -67,7 +67,7 @@ export class ArenaComponent implements OnInit, AfterViewInit, OnDestroy {
     this.shuffleTime();
 
     this.bots.forEach((bot, idx) => {
-      timer(this.timers[idx]).subscribe(() => {
+      timer(this.startTime[idx]).subscribe(() => {
         this.setNewPos(bot, idx);
       });
     });
