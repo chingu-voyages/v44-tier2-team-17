@@ -9,6 +9,7 @@ import {
 import { FormArray, FormGroup } from '@angular/forms';
 import { Direction, Pos } from '../shared/shared.interface';
 import { SharedService } from '../shared/shared.service';
+import { timer } from 'rxjs';
 
 @Component({
   selector: 'app-arena',
@@ -18,6 +19,7 @@ import { SharedService } from '../shared/shared.service';
 export class ArenaComponent implements OnInit, AfterViewInit, OnDestroy {
   tiles: number[] = [];
   pos: Pos[] = [];
+  timers: number[] = [0, 200];
   gameForm!: FormGroup;
   bots!: NodeListOf<HTMLElement>;
   speed: number = 20;
@@ -50,11 +52,24 @@ export class ArenaComponent implements OnInit, AfterViewInit, OnDestroy {
     });
   }
 
+  shuffleTime() {
+    for (let i = this.timers.length - 1; i > 0; i--) {
+      let j = Math.floor(Math.random() * this.timers.length);
+      let temp = this.timers[i];
+      this.timers[i] = this.timers[j];
+      this.timers[j] = temp;
+    }
+  }
+
   startGame() {
     this.bots = this.elRef.nativeElement.querySelectorAll('app-bot');
 
+    this.shuffleTime();
+
     this.bots.forEach((bot, idx) => {
-      this.setNewPos(bot, idx);
+      timer(this.timers[idx]).subscribe(() => {
+        this.setNewPos(bot, idx);
+      });
     });
   }
 
